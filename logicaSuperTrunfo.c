@@ -3,7 +3,7 @@
 int main() {
     // Definição das variáveis para armazenar as propriedades das cidades
     // Você pode utilizar o código do primeiro desafio
-char estado1, estado2;
+    char estado1, estado2;
     char codigoCarta1[4], codigoCarta2[4];
     char nomeCarta1[100], nomeCarta2[100];
     int populacaoCarta1, populacaoCarta2;
@@ -17,8 +17,6 @@ char estado1, estado2;
 
 
     // Cadastro das Cartas:
-    // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
-    // Solicite ao usuário que insira as informações de cada cidade, como o código, nome, população, área, etc.
 
     printf("Matecheck - Super Trunfo - Países / Cadastro de Cartas \n \n");
     
@@ -29,7 +27,7 @@ char estado1, estado2;
     scanf(" %c", &estado1);
 
     printf("Informe o código da carta: ");
-    scanf("%s", codigoCarta1);
+    scanf(" %s", codigoCarta1);
 
     printf("Informe o nome da cidade: ");
     scanf(" %[^\n]", nomeCarta1);
@@ -55,7 +53,7 @@ char estado1, estado2;
     scanf(" %c", &estado2);
 
     printf("Informe o código da carta: ");
-    scanf("%s", codigoCarta2);
+    scanf(" %s", codigoCarta2);
 
     printf("Informe o nome da cidade: ");
     scanf(" %[^\n]", nomeCarta2);
@@ -79,9 +77,11 @@ char estado1, estado2;
     pibPerCapitaCarta1= (float) (pibCarta1 * 1000000000) / populacaoCarta1;
     pibPerCapitaCarta2 = (float) (pipCarta2 * 1000000000) / populacaoCarta2;
 
+    // calculo do superPoder.
+    superPoderCarta1 = (float) populacaoCarta1 + areaCarta1 + pibCarta1 + (float) pontosTuristicosCarta1 + (1/densidadePopulacionalCarta1) + pibPerCapitaCarta1;
+    superPoderCarta2 = (float) populacaoCarta2 + areaCarta2 + pipCarta2 + (float) pontosTuristicosCarta2 + (1/densidadePopulacionalCarta2) + pibPerCapitaCarta2;
+
     // Exibição dos Dados das Cartas:
-    // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
-    // Exiba os valores inseridos para cada atributo da cidade, um por linha.
 
     printf("\n \n"); //Comando utilizado apenas para pular duas linhas e melhorar a visualização
     
@@ -94,7 +94,9 @@ char estado1, estado2;
     printf("PIB: %.2f bilhões de reais \n", pibCarta1);
     printf("Número de Pontos Turísticos: %d \n", pontosTuristicosCarta1);
     printf("Densidade Populacional: %.2f hab/km² \n", densidadePopulacionalCarta1);
-    printf("PIB per Capita: %.2f reais", pibPerCapitaCarta1);
+    printf("PIB per Capita: %.2f reais \n", pibPerCapitaCarta1);
+    printf("Superpoder carta 1: %.3f \n", superPoderCarta1);
+
 
     printf("\n \n"); //Comando utilizado apenas para pular duas linhas e melhorar a visualização
 
@@ -108,19 +110,27 @@ char estado1, estado2;
     printf("PIB: %.2f bilhões de reais \n", pipCarta2);
     printf("Número de Pontos Turísticos: %d \n", pontosTuristicosCarta2);
     printf("Densidade Populacional: %.2f hab/km² \n", densidadePopulacionalCarta2);
-    printf("PIB per Capita: %.2f reais \n \n", pibPerCapitaCarta2);
+    printf("PIB per Capita: %.2f reais \n", pibPerCapitaCarta2);
+    printf("Superpoder carta 2: %.3f \n", superPoderCarta2);
 
-
-    // calculo do superPoder.
-    superPoderCarta1 = (float) populacaoCarta1 + areaCarta1 + pibCarta1 + (float) pontosTuristicosCarta1 + (1/densidadePopulacionalCarta1) + pibPerCapitaCarta1;
-    superPoderCarta2 = (float) populacaoCarta2 + areaCarta2 + pipCarta2 + (float) pontosTuristicosCarta2 + (1/densidadePopulacionalCarta2) + pibPerCapitaCarta2;
-    
+   
     printf("\n \n"); //Comando utilizado apenas para pular duas linhas e melhorar a visualização
 
-    printf("Superpoder carta 1: %.3f \n", superPoderCarta1);
-    printf("Superpoder carta 2: %.3f \n", superPoderCarta2);
     
     // Comparação das cartas
+
+    printf("Comparação de cartas (Atributo: População):\n \n");
+ 
+
+    printf("Carta 1 - %s: %d \n", nomeCarta1, populacaoCarta1);
+    printf("Carta 2 - %s: %d \n \n", nomeCarta2, populacaoCarta2);
+
+    if (populacaoCarta1 > populacaoCarta2){
+        printf("Resultado carta 1 - %s Venceu! \n \n", nomeCarta1);
+    } else {
+        printf("Resultado carta 2 - %s Venceu! \n \n", nomeCarta2);
+    }
+    
    
 
     
